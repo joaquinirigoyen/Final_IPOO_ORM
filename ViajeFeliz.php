@@ -1,5 +1,7 @@
 <?php
 include_once 'Pasajero.php';
+include_once 'PasajeroVip.php';
+include_once 'PasajeroEspecial.php';
 include_once 'ResponsableV.php';
 class ViajeFeliz {
 private $codigo;

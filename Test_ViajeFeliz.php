@@ -1,6 +1,8 @@
 <?php
 include_once 'ViajeFeliz.php';
 include_once 'Pasajero.php';
+include_once 'PasajeroVip.php';
+include_once 'PasajeroEspecial.php';
 include_once 'ResponsableV.php';
 
 // Creo el objeto viaje 
@@ -60,6 +62,7 @@ do {
             $apellido = trim(fgets(STDIN));
             echo "ingresa el dni del pasajero"."\n";
             $num_doc = trim(fgets(STDIN));
+            
             if ($objViaje->buscaPasajero($num_doc) >= 0){
                 echo "ya hay una persona con ese dni";
                 break;
@@ -75,7 +78,7 @@ do {
             $respuesta = trim(fgets(STDIN));
             if ($respuesta == 'c'){
                 $objPasajero = new Pasajero($nombre,$apellido,$num_doc,$telefono,$numA,$numT);
-                echo "Debe pagar: $",$objViaje->venderPasaje($objPasajero)."\n";
+                echo "Debe pagar: $".$objViaje->venderPasaje($objPasajero)."\n";
             }
             if ($respuesta == 'v'){
                 echo "ingrese el numero frecuente:\n";
@@ -83,7 +86,7 @@ do {
                 echo "ingrese la cantidad de millas:\n";
                 $millas = trim(fgets(STDIN));
                 $objPasajero = new PasajeroVip($numFrecuente,$millas,$nombre,$apellido,$num_doc,$telefono,$numA,$numT);
-                echo "Debe pagar: $",$objViaje->venderPasaje($objPasajero2)."\n";
+                echo "Debe pagar: $".$objViaje->venderPasaje($objPasajero)."\n";
             }
             if ($respuesta == 'e'){
                 echo "Necesita silla de ruedas?:\n";
@@ -93,7 +96,7 @@ do {
                 echo "Necesita asistencia?:\n";
                 $asistenciaEspecial = trim(fgets(STDIN));
                 $objPasajero = new PasajeroEspecial($servicioEspecial,$comidaEspecial,$asistenciaEspecial,$nombre,$apellido,$num_doc,$telefono,$numA,$numT);
-                echo "Debe pagar: $",$objViaje->venderPasaje($objPasajero3)."\n";
+                echo "Debe pagar: $".$objViaje->venderPasaje($objPasajero)."\n";
             }
        
         break;
