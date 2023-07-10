@@ -1,6 +1,5 @@
 <?php
 include_once 'Pasajero.php';
-
 class PasajeroEspecial extends Pasajero {
     private $servicioEspecial;
     private $comidaEspecial;
